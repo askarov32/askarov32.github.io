@@ -126,3 +126,4 @@ $not = !($a > 15);          // true
    php -S localhost:8000
    ```
 4. Откройте браузер и перейдите по адресу `http://localhost:8000/basics.php`.
+
