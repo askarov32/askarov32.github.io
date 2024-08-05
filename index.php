@@ -1,3 +1,12 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+include 'products.php';
+
+$products = Product::getAllProducts();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +25,7 @@
         <div class="all-content">
             <section class="products">
                 <h2>Товары</h2>
-                <?php
-                include 'products.php';
-                $products = Product::getAllProducts();
-                foreach ($products as $product): ?>
+                <?php foreach ($products as $product): ?>
                     <div class="card" data-id="<?= $product->id ?>">
                         <img src="<?= $product->image ?>" alt="<?= $product->name ?>" width="200" height="200">
                         <a href="./catalog/product_template.php?id=<?= $product->id ?>"><h3 class="product-name"><?= $product->name ?></h3></a>
@@ -41,14 +47,16 @@
                 <div class="cart-items"></div>
                 <p class="delievery">Доставка: бесплатно</p>
                 <p class="total">Итого: <span>0тг</span></p>
-                <form>
+                <form action="order.php" method="POST">
                     <legend class="get-order">Оформить заказ</legend>
-                    <input type="Phone" placeholder="Ваш номер телефона" class="phone-number">
+                    <input type="hidden" name="cart" class="cart-input">
+                    <input type="Phone" name="phone" placeholder="Ваш номер телефона" class="phone-number" required>
+                    <button type="submit" class="get">Заказать</button>
                 </form>
-                <button class="get">Заказать</button>
             </div>
         </div>
     </main>
     <footer></footer>
 </body>
 </html>
+                    
