@@ -19,10 +19,9 @@ for ($i = 0; $i < 5; $i++) {
   echo "Hello\n";
 }
 
-foreach ($products as $product) {
-  $name = $product->name;
-  echo $name;
-}
-
-
+// foreach ($products as $product) {
+//   if ($product->amount != 0) {
+//     echo $product->name;
+//   }
+// }
 
