@@ -5,16 +5,21 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title></title>
-    <!-- <script src="lesson1.js"></script> -->
-  </head>
-  <body>
-      <?php foreach ($products as $product): ?>
+    <script src="lesson1.js" defer></script>
+</head>
+<body>
+    <?php foreach ($products as $product): ?>
         <h1><?= $product->name ?></h1>
-        <img src="<?= $product->image ?>"> 
+        <img style="width: 300px; height: 280px" src="<?= $product->image ?>">
         <p><?= $product->price ?></p>
-      <?php endforeach ?>
-  </body>
-</html>
 
+        <div class="buttons">
+            <button class="decrement_button">-</button>
+            <span class="amount">1</span>
+            <button class="increment_button">+</button>
+        </div>
+    <?php endforeach ?>
+</body>
+</html>
