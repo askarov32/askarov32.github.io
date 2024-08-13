@@ -4,8 +4,6 @@
         align-items: center;
         display: flex;
    }
-
-
    
    header {
       font-size: 12px;
@@ -34,6 +32,7 @@
    height: 239px;
    box-shadow: rgba(0, 0, 0, 0.2) 0 4px 4px 0;
 }
+
 .cost1 {
    font-weight: 700;
    font-size: 15px;
@@ -51,7 +50,7 @@
    justify-content: center;
 }
 
-.button2{
+.button2 {
    border-radius: 5px;
     background-color: #f2ede7;
     height: 30px;

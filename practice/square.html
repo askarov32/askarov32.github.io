@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нажми на квадрат</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        #gameCanvas {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: #ddd;
+            border: 2px solid #333;
+        }
+        #square {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #007bff;
+        }
+        #score {
+            position: absolute;
+            top: -30px;
+            left: 0;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameCanvas">
+        <div id="score">Счёт: 0</div>
+        <div id="square"></div>
+    </div>
+
+    <script>
+        const square = document.getElementById('square');
+        const gameCanvas = document.getElementById('gameCanvas');
+        const scoreDisplay = document.getElementById('score');
+        let score = 0;
+
+        function updateScore() {
+            scoreDisplay.textContent = `Счёт: ${score}`;
+        }
+
+        function moveSquare() {
+            const maxX = gameCanvas.clientWidth - square.clientWidth;
+            const maxY = gameCanvas.clientHeight - square.clientHeight;
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            square.style.left = `${randomX}px`;
+            square.style.top = `${randomY}px`;
+        }
+
+        square.addEventListener('click', (event) => {
+            event.stopPropagation();
+            score++;
+            updateScore();
+            moveSquare();
+        });
+
+        gameCanvas.addEventListener('click', () => {
+            score = 0;
+            updateScore();
+        });
+
+        moveSquare();
+    </script>
+</body>
+</html>

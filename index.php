@@ -9,7 +9,7 @@ $products = Product::getAllProducts();
     <title>My project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/css/style.css">
-    <script src="/assets/js/cart.js" defer></script>
+    <script src="/assets/js/cart.js"></script>
 </head>
 <body>
     <main class="main">
@@ -47,7 +47,7 @@ $products = Product::getAllProducts();
                     <legend class="get-order">Оформить заказ</legend>
                     <input type="hidden" name="cart" class="cart-input">
                     <input type="Phone" name="phone" placeholder="Ваш номер телефона" class="phone-number" required>
-                    <button type="submit" class="get">Заказать</button>
+                    <button type="submit" class="get" id="order">Заказать</button>
                 </form>
             </div>
         </div>

@@ -16,11 +16,12 @@ if (!$product) {
     header('Location: /index.php');
     exit;
 }
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title><?= htmlspecialchars($product->name) ?></title>
+    <title><?= $product->name ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/product.css">
@@ -28,20 +29,19 @@ if (!$product) {
 <body class="container">
     <header>
         <a href="/index.php">Главная</a>
-        <span> > <?= htmlspecialchars($product->name) ?> </span>
+        <span> > <?= $product->name ?> </span>
     </header>
     <main>
-        <h1><?= htmlspecialchars($product->name) ?></h1>
+        <h1><?= $product->name ?></h1>
         <section class="photos">
-            <img src="../<?= htmlspecialchars($product->image) ?>" alt="Картинка товара" width="200" height="200">
-            <!-- Добавь дополнительные изображения товара, если есть -->
+            <img src="../<?= $product->image ?>" alt="Картинка товара" width="200" height="200">
         </section>
-        <div>
-            <p>О модели: <?= htmlspecialchars($product->description) ?></p>
-            <p><?= htmlspecialchars($product->details) ?></p>
+        <div> 
+            <p>Описание: <?= $product->description ?></p>
+            <p><?= $product->details ?></p>
         </div>
         <div class="div-block">
-            <p class="cost1">Стоимость: <?= htmlspecialchars($product->price) ?>тг</p>
+            <p class="cost1">Стоимость: <?= $product->price ?>тг</p>
             <p class="quantity">1 шт.</p>
             <div class="button2">
                 <button>-</button>
@@ -51,6 +51,6 @@ if (!$product) {
             <button class="basket5" onclick="addToCart(<?= $product->id ?>)">Добавить в корзину</button>
         </div>
     </main>
-    <script src="/assets/js/cart.js"></script>
+    <script src="/assets/js/basket.js"></script>
 </body>
 </html>
